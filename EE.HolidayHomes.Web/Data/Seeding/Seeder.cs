@@ -40,7 +40,18 @@ namespace EE.HolidayHomes.Web.Data.Seeding
                 new HolidayHome{Id = 4,Name = "The seaside house",Price = 350.55M,Image = "house4.jpg", LocationId = 4, HomeTypeId=3},
             };
 
+            var holidayHomesHomeTypes = new[]
+            {
+                 new {HolidayHomesId=1,HomePropertiesId=1},
+                 new {HolidayHomesId=2,HomePropertiesId=3},
+                 new {HolidayHomesId=3,HomePropertiesId=5},
+                 new {HolidayHomesId=4,HomePropertiesId=1},
 
+                 new {HolidayHomesId=1,HomePropertiesId=2},
+                 new {HolidayHomesId=2,HomePropertiesId=4},
+                 new {HolidayHomesId=3,HomePropertiesId=6},
+                 new {HolidayHomesId=4,HomePropertiesId=2},
+            };
 
             modelBuilder.Entity<HomeProperty>().HasData(homeProperties);
             modelBuilder.Entity<Location>().HasData(locations);

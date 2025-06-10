@@ -11,5 +11,7 @@
         public HomeType HomeType { get; set; }
 
         public int? HomeTypeId { get; set; }
+
+        public ICollection<HomeProperty> HomeProperties { get; set; }
     }
 }
