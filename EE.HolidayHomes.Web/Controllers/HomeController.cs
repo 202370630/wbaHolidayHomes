@@ -47,7 +47,7 @@ namespace EE.HolidayHomes.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> FindbyLocation(int id)
         {
-            if(!await _applicationDbContext.Locations.AnyAsync(l => l.Id == id))
+            if (!await _applicationDbContext.Locations.AnyAsync(l => l.Id == id))
             {
                 return NotFound();
             }
@@ -71,7 +71,49 @@ namespace EE.HolidayHomes.Web.Controllers
             };
             homeIndexViewModel.PageTitle = _applicationDbContext
                 .Locations.FirstOrDefault(l => l.Id == id).Name;
-            return View("Index",homeIndexViewModel);
+            return View("Index", homeIndexViewModel);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Info(int id)
+        {
+            if (!await _applicationDbContext.HolidayHomes.AnyAsync(h => h.Id == id))
+            {
+                return NotFound();
+            }
+
+            var holidayHome = await _applicationDbContext
+                .HolidayHomes
+                .Include(h => h.Location)
+                .Include(h => h.HomeType)
+                .FirstOrDefaultAsync(h => h.Id == id);
+
+            var holidayHomeInfoViewModel = new HolidayHomeInfoViewModel
+            {
+
+                HomeProperties = holidayHome.HomeProperties
+                    .Select(p => new BaseViewModel
+                    {
+                        Id = p.Id,
+                        Name = p.Name,
+                    }),
+                HomeType = new BaseViewModel
+                {
+                    Id = holidayHome.HomeType.Id,
+                    Name = holidayHome.HomeType.Name,
+                },
+                Location = new BaseViewModel
+                {
+                    Id = holidayHome.Location.Id,
+                    Name = holidayHome.Location.Name,
+                },
+                Price = holidayHome.Price,
+                Image = holidayHome.Image,
+            };
+            holidayHomeInfoViewModel.PageTitle = _applicationDbContext
+                .HolidayHomes.FirstOrDefault(h => h.Id == id).Name;
+
+            return View(holidayHomeInfoViewModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
