@@ -57,6 +57,12 @@ namespace EE.HolidayHomes.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(HolidayHomesCreateViewModel holidayHomesCreateViewModel)
         {
+            
+            if (holidayHomesCreateViewModel.Price < 0)
+            {
+                ModelState.AddModelError("Price", "Price cannot be less than zero");
+            }
+           
             if (!ModelState.IsValid)
             {
                 holidayHomesCreateViewModel = new HolidayHomesCreateViewModel
