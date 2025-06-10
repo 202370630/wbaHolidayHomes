@@ -91,6 +91,8 @@ namespace EE.HolidayHomes.Web.Controllers
 
             var holidayHomeInfoViewModel = new HolidayHomeInfoViewModel
             {
+                Name = holidayHome.Name,
+                Id = holidayHome.Id,
 
                 HomeProperties = holidayHome.HomeProperties
                     .Select(p => new BaseViewModel
@@ -98,16 +100,19 @@ namespace EE.HolidayHomes.Web.Controllers
                         Id = p.Id,
                         Name = p.Name,
                     }),
+
                 HomeType = new BaseViewModel
                 {
                     Id = holidayHome.HomeType.Id,
                     Name = holidayHome.HomeType.Name,
                 },
+
                 Location = new BaseViewModel
                 {
                     Id = holidayHome.Location.Id,
                     Name = holidayHome.Location.Name,
                 },
+
                 Price = holidayHome.Price,
                 Image = holidayHome.Image,
                 PageTitle = holidayHome.Name,

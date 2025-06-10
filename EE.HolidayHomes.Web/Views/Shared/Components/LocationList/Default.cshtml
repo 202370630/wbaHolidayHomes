@@ -1,0 +1,9 @@
+﻿@model DropdownListViewModel
+
+@foreach (var listItem in Model.DropDownListItems)
+{
+    <li>
+        <a class="dropdown-item" asp-area="" asp-controller="Home"
+           asp-action="FindByLocation" asp-route-id="@listItem.Id">@listItem.Name</a>
+    </li>
+}
