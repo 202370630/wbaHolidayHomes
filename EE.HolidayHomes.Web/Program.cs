@@ -1,5 +1,6 @@
 using EE.HolidayHomes.Web.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileSystemGlobbing.Internal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 //Add DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("HolidayHomesDb")));
-builder.Services.AddSession(); 
+builder.Services.AddSession();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -26,6 +27,13 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseSession();
 app.UseAuthorization();
+
+app.MapControllerRoute
+(
+    name: "ByLocation",
+    pattern: "/Location/{id:int}",
+    defaults: new { Controller = "Home", Action = "FindByLocation" }
+);
 
 app.MapControllerRoute(
     name: "default",
