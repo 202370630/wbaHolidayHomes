@@ -9,5 +9,7 @@
         public Location Location { get; set; }
 
         public HomeType HomeType { get; set; }
+
+        public int? HomeTypeId { get; set; }
     }
 }
