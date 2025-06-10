@@ -25,9 +25,18 @@
             <!-- Product actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center">
-                    <a class="btn btn-outline-dark mt-auto" asp-controller="Home"
-                       asp-action="Info"
-                       asp-route-id="@Model.Id">Info</a>
+                    <a class="btn btn-outline-dark mt-auto" 
+                       asp-controller="Home"
+                       asp-action="Index"
+                       >
+                        Back
+                    </a>
+                    <a class="btn btn-outline-dark mt-auto"
+                       asp-controller="Cart"
+                       asp-action="Index"
+                       >
+                        Add to Cart
+                    </a>
                 </div>
             </div>
         </div>

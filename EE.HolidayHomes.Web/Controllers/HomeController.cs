@@ -86,6 +86,7 @@ namespace EE.HolidayHomes.Web.Controllers
                 .HolidayHomes
                 .Include(h => h.Location)
                 .Include(h => h.HomeType)
+                .Include(h => h.HomeProperties)
                 .FirstOrDefaultAsync(h => h.Id == id);
 
             var holidayHomeInfoViewModel = new HolidayHomeInfoViewModel
@@ -109,9 +110,8 @@ namespace EE.HolidayHomes.Web.Controllers
                 },
                 Price = holidayHome.Price,
                 Image = holidayHome.Image,
+                PageTitle = holidayHome.Name,
             };
-            holidayHomeInfoViewModel.PageTitle = _applicationDbContext
-                .HolidayHomes.FirstOrDefault(h => h.Id == id).Name;
 
             return View(holidayHomeInfoViewModel);
         }
