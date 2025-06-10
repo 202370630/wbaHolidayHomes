@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EE.HolidayHomes.Web", "EE.HolidayHomes.Web\EE.HolidayHomes.Web.csproj", "{D550A6A8-0E6B-4137-BC86-A7378106E896}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EE.HolidayHomes.Core", "EE.HolidayHomes.Core\EE.HolidayHomes.Core.csproj", "{E9EB411A-9A66-4582-B745-282A1DBF83F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D550A6A8-0E6B-4137-BC86-A7378106E896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D550A6A8-0E6B-4137-BC86-A7378106E896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D550A6A8-0E6B-4137-BC86-A7378106E896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D550A6A8-0E6B-4137-BC86-A7378106E896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9EB411A-9A66-4582-B745-282A1DBF83F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9EB411A-9A66-4582-B745-282A1DBF83F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9EB411A-9A66-4582-B745-282A1DBF83F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9EB411A-9A66-4582-B745-282A1DBF83F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50E65521-AC9C-4755-91D3-3617B33DCCB6}
+	EndGlobalSection
+EndGlobal
